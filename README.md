@@ -16,9 +16,8 @@ Requires: Java Runtime Environment (JRE) To recompile you need JDK and you can t
 
 To recompile into a JAR file,
 
-javac split/Main.class split/Main.java
+1) javac split/Main.java
+this recreates the class file
 
-
-jar -cvfe VBV.jar split.Main split\Main.class
-
-
+2) jar -cvfe VBV.jar split.Main split\Main.class
+this repackages it into a jar.
