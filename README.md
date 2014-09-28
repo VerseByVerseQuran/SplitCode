@@ -15,4 +15,6 @@ This was also done as a paid project for us.
 Requires: Java Runtime Environment (JRE) To recompile you need JDK and you can type "javac Main.java" and it will create a new Main.class for you email us at support @ lightuponlight dot com if you like this project
 
 To recompile into a JAR file,
-jar -cvfe c:\utils\split\VBV.jar split.Main split\Main.class
+javac split/Main.class split/Main.java
+jar -cvfe VBV.jar split.Main split\Main.class
+
