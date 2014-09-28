@@ -1,10 +1,10 @@
 /*
- * Copyright versebyversequran.com
- * Licensed under Apache 2.0
  * Main.java
  *
  * Created on 13 December 2006, 23:53
  *
+ * To change this template, choose Tools | Template Manager
+ * and open the template in the editor.
  */
 
 package split;
@@ -22,7 +22,7 @@ public class Main {
     /** Creates a new instance of Main */
     public Main() {
     }
-    
+	String MP3SPLTPATH = "c:\\program files\\mp3splt\\mp3splt.exe";
     /**
      * @param args the command line arguments
      */
@@ -115,13 +115,20 @@ public class Main {
                 splitstring = padstring.substring(splitstring.length()) + splitstring;
                 
                 fullsplitname = chapterstring + splitstring + ".mp3";
-                
-                fullcommand = "mp3splt \"" + mp3FileName + "\" " + starttime + " " + endtime + " -o \"" + fullsplitname + "\" -d out";
+                String[] params = new String[] {
+					MP3SPLTPATH,
+					mp3FileName,
+					starttime, 
+					endtime,
+					"-o " + 				fullsplitname,
+					"-d out"
+					};
+                //fullcommand = "\"c:\\program files\\mp3splt\" \"" + mp3FileName + "\" " + starttime + " " + endtime + " -o \"" + fullsplitname + "\" -d out";
                 
                 /* Execute the command in another process */
-                System.out.println("Executing " + fullcommand);
+                System.out.println("Executing " + Arrays.toString(params));
                 
-                Process proc = Runtime.getRuntime().exec(fullcommand);
+                Process proc = Runtime.getRuntime().exec(params);
                 
                 InputStream inputstream = proc.getErrorStream();
                 InputStreamReader inputstreamreader = new InputStreamReader(inputstream);
